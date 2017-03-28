@@ -25,13 +25,13 @@ public class IndexServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ServicioCandidatos serviCandidatos = ServicioCandidatos.getInstancia();
-		Candidato candidato = serviCandidatos.getCandidatoPorId(3);
-		System.out.println(candidato);
-		
-//		ServicioUsuarios serviUsua = ServicioUsuarios.getInstancia();
-//		Usuario usu = serviUsua.getUsuarioPorId(1);
-//		System.out.println(usu.getNombre_usuario());
+//		ServicioCandidato serviCandidatos = ServicioCandidatos.getInstancia();
+//		Candidato candidato = serviCandidatos.getCandidatoPorId(3);
+//		System.out.println(candidato);
+//		
+		ServicioUsuarios serviUsua = ServicioUsuarios.getInstancia();
+		Usuario usu = serviUsua.getUsuarioPorId(1);
+		System.out.println(usu);
 			request.getRequestDispatcher("/index.ftl").forward(request, response);
 	}
 

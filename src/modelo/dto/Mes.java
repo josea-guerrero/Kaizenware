@@ -115,5 +115,12 @@ public class Mes {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Mes [id=" + id + ", mes=" + mes + ", diasFeriados=" + diasFeriados + "]";
+	}
+	
+	
 	
 }

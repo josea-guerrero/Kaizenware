@@ -34,7 +34,16 @@ public class Usuario implements Serializable
 	@JoinColumn(name = "id_candidato")
 	private Candidato candidato;
 	
+	
   
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
+	}
+
 	public Usuario() {
 		super();
 	}
@@ -128,12 +137,12 @@ public class Usuario implements Serializable
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre_usuario=" + nombre_usuario + ", contrasena=" + contrasena
-			+ ", contrasena_confirma=" + contrasena_confirma + ", foto_perfil=" + foto_perfil + ", rol=" + rol
-			+ "]";
+				+ ", contrasena_confirma=" + contrasena_confirma + ", foto_perfil=" + foto_perfil + ", rol=" + rol
+				+ ", candidato=" + candidato + "]";
 	}
 	
 }

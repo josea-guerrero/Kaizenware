@@ -96,9 +96,7 @@ public class DiaFeriado implements Serializable {
 
 	@Override
 	public String toString() {
-		return "DiaFeriado [id=" + id + ", dia=" + dia + ", mes=" + mes + ", nombre=" + nombre + "]";
+		return "DiaFeriado [id=" + id + ", dia=" + dia + ", mes=" + mes.getIdString() + ", nombre=" + nombre + "]";
 	}
-	
-	
 	
 }

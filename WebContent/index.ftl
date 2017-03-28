@@ -160,7 +160,7 @@
                 </div>
             </section>
 
-			<#include "/Vista/usuarios/footer-admin.html" />
+			<#include "Vista/usuarios/footer.ftl" />
 </div>
 
         <script src="assets/js/jquery-3.1.1.js"></script>

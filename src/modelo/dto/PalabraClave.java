@@ -84,7 +84,7 @@ public class PalabraClave {
 
 		@Override
 		public String toString() {
-			return "PalabraClave [id=" + id + ", palabra=" + palabra + ", candidatos=" + candidatos + "]";
+			return "PalabraClave [id=" + id + ", palabra=" + palabra + "]";
 		}
 
 }

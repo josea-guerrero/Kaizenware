@@ -89,7 +89,7 @@ public class Rol implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Rol [id=" + id + ", rol=" + rol + ", usuarios=" + usuarios + "]";
+		return "Rol [id=" + id + ", rol=" + rol + "]";
 	}
 
     
