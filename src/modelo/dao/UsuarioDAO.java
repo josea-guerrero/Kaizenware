@@ -39,10 +39,11 @@ public class UsuarioDAO extends GenericDAO {
 		Session session = this.sesion.openSession();
         List<Usuario> usuario = null;        
         try{
-            usuario = session.createCriteria(Usuario.class).add(Restrictions.eq("nombre_usuario", nombre)).list();
-        } 
+            usuario = (List<Usuario>) session.createCriteria(Usuario.class).add(Restrictions.eq("nombre_usuario", nombre)).list();
+        }  
         catch (Exception e) {  
-        	e.printStackTrace();        
+        	e.printStackTrace();
+        	System.out.println("El error es con el criteria");
         }  
         finally {  
             session.close();  

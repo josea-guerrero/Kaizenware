@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name= "usuario")
-
 public class Usuario implements Serializable
 {
 
@@ -33,16 +32,6 @@ public class Usuario implements Serializable
 	@OneToOne(cascade= CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_candidato")
 	private Candidato candidato;
-	
-	
-  
-	public Candidato getCandidato() {
-		return candidato;
-	}
-
-	public void setCandidato(Candidato candidato) {
-		this.candidato = candidato;
-	}
 
 	public Usuario() {
 		super();
@@ -111,6 +100,14 @@ public class Usuario implements Serializable
 	
 	public void setFoto_perfil(String foto_perfil) {
 		this.foto_perfil = foto_perfil;
+	}
+	  
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 	
 	@Override
