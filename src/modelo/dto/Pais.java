@@ -21,9 +21,9 @@ public class Pais implements Serializable{
 	
 	private String pais;
 	
-	@OneToMany(mappedBy = "pais", fetch = FetchType.LAZY)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Candidato> candidatos;
+//	@OneToMany(mappedBy = "pais", fetch = FetchType.EAGER)
+//	@Fetch(value = FetchMode.SUBSELECT)
+//	private List<Candidato> candidatos;
 	
 	//private List<Cliente> clientes;
 	
@@ -33,6 +33,13 @@ public class Pais implements Serializable{
 	
 	public Integer getId() {
 		return id;
+	}
+	
+	public String getIdString() {
+		if (this.id == null) {
+			return null;
+		}
+		return this.id.toString().replaceAll("\\.", "");
 	}
 	
 	public void setId(Integer id) {

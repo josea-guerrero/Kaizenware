@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -28,7 +29,7 @@ public class Proyecto implements Serializable {
 	
 	private Integer estado; // 1:Activo - 2:Finalizado
 	
-	private Calendar fecha_finalizado; // Se carga este campo automáticamente cuando el proyecto se ha finalizado
+	private Calendar fecha_finalizado; // Se carga este campo automï¿½ticamente cuando el proyecto se ha finalizado
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente")
@@ -40,6 +41,7 @@ public class Proyecto implements Serializable {
 	
 	@OneToMany(mappedBy = "proyecto", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Cobro> cobros;
 
 	public Proyecto() {
@@ -162,13 +164,6 @@ public class Proyecto implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Proyecto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha_registro="
-				+ fecha_registro + ", estado=" + estado + ", fecha_finalizado=" + fecha_finalizado + ", cliente="
-				+ cliente + ", cargos=" + cargos + ", cobros=" + cobros + "]";
 	}
 	
 	

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -23,6 +24,7 @@ public class Rol implements Serializable {
 	
 	@OneToMany(mappedBy="rol", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Usuario> usuarios;
 
 	

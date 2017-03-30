@@ -76,15 +76,16 @@ public class ServicioCandidatos {
 		return candidato;
 	}
 
-	public Candidato modificarCandidato(Integer id, Integer idPais, String contrasena, String contrasena_confirma,
-			String foto_perfil, String nombre_candidato) {
+	public Candidato modificarCandidato(Integer id, String nombres, String apellidos, String telefono, String correo, Integer idPais, String ciudad, Character sexo) {
 		Candidato candidato = this.getCandidatoPorId(id);
 		Pais pais = this.getPaisPorId(idPais);
-//		candidato.setPais(pais);
-//		candidato.setContrasena(contrasena);
-//		candidato.setContrasena_confirma(contrasena_confirma);
-//		candidato.setFoto_perfil(foto_perfil);
-//		candidato.setNombre_candidato(nombre_candidato);
+		candidato.setPais(pais);
+		candidato.setNombres(nombres);
+		candidato.setApellidos(apellidos);
+		candidato.setTelefono(telefono);
+		candidato.setCorreo(correo);
+		candidato.setCiudad(ciudad);
+		candidato.setSexo(sexo);
 		this.candidatoDAO.saveOrUpdate(candidato);
 		return this.getCandidatoPorId(id);
 	}

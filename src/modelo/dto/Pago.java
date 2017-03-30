@@ -5,7 +5,7 @@ import java.util.Calendar;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "table")
+@Table(name = "pago")
 public class Pago implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -132,12 +132,6 @@ public class Pago implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Pago [id=" + id + ", fecha_emision=" + fecha_emision + ", descripcion=" + descripcion + ", monto="
-				+ monto + ", comprobante=" + comprobante + ", mes=" + mes + ", cargo=" + cargo + "]";
 	}
 
 }

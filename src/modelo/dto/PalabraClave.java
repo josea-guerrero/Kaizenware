@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -22,6 +23,7 @@ public class PalabraClave {
 		
 		@ManyToMany(cascade = CascadeType.ALL, mappedBy="palabrasClaves", fetch = FetchType.LAZY)
 		@Fetch(value = FetchMode.SUBSELECT)
+		@JsonIgnore
 		private List<Candidato> candidatos;
 
 

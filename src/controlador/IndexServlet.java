@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.dao.CandidatoDAO;
 import modelo.dto.Candidato;
 import modelo.dto.Pais;
 import modelo.dto.Usuario;
@@ -25,14 +26,18 @@ public class IndexServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		ServicioCandidato serviCandidatos = ServicioCandidatos.getInstancia();
+//		ServicioCandidatos serviCandidatos = ServicioCandidatos.getInstancia();
 //		Candidato candidato = serviCandidatos.getCandidatoPorId(3);
 //		System.out.println(candidato);
-//		
-		ServicioUsuarios serviUsua = ServicioUsuarios.getInstancia();
-		Usuario usu = serviUsua.getUsuarioPorId(1);
-		System.out.println(usu);
-			request.getRequestDispatcher("/index.ftl").forward(request, response);
+		
+//		ServicioUsuarios serviUsua = ServicioUsuarios.getInstancia();
+//		Usuario usu = serviUsua.getUsuarioPorId(1);
+//		System.out.println(usu);
+		
+//		CandidatoDAO candiDAO = CandidatoDAO.getInstancia();
+//		List<Candidato> empleados = candiDAO.EmpleadosSinUsuario();
+//		System.out.println(empleados);
+		request.getRequestDispatcher("/index.ftl").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

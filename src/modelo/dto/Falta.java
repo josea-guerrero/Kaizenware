@@ -26,7 +26,7 @@ public class Falta implements Serializable {
 	
 	private String constancia;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_candidato")
 	private Candidato candidato;
 
@@ -141,13 +141,5 @@ public class Falta implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Falta [id=" + id + ", horas_faltadas=" + horas_faltadas + ", fecha=" + getFechaString() + ", tipo_falta="
-				+ getTipoFaltaString() + ", descripcion=" + descripcion + ", constancia=" + constancia + ", candidato="
-				+ candidato.getId() + "]";
-	}
-	
-	
 
 }

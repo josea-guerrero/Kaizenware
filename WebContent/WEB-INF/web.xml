@@ -77,6 +77,30 @@
     <servlet-name>controlador_panel_gerente</servlet-name>
     <url-pattern>/PanelGerente</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>controlador_usuario</servlet-name>
+    <servlet-class>controlador.ControladorUsuario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_usuario</servlet-name>
+    <url-pattern>/Usuario</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>controlador_asistencia</servlet-name>
+    <servlet-class>controlador.ControladorAsistencia</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_asistencia</servlet-name>
+    <url-pattern>/Asistencia</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>controlador_candidato</servlet-name>
+    <servlet-class>controlador.ControladorCandidato</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_candidato</servlet-name>
+    <url-pattern>/Candidato</url-pattern>
+  </servlet-mapping>
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>FreeMarker MVC Views</web-resource-name>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -35,10 +36,12 @@ public class Cliente implements Serializable {
 	
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Proyecto> proyectos;
 	
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Cobro> cobros;
 	
 	public Cliente() {
@@ -147,13 +150,6 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", nom_contacto=" + nom_contacto + ", tlf_contacto="
-				+ tlf_contacto + ", correo=" + correo + ", correo_contacto=" + correo_contacto + ", pais=" + pais
-				+ ", proyectos=" + proyectos + ", cobros=" + cobros + "]";
 	}
 	 
 }

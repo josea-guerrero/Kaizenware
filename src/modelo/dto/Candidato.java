@@ -5,9 +5,20 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+@NamedNativeQueries({ 
+	@NamedNativeQuery(name = "findEmpleadoSinUsuario",
+	query = "SELECT * FROM candidato c LEFT OUTER JOIN usuario u ON u.id_candidato = c.id WHERE u.id IS NULL AND c.estado = 2",
+	resultClass = Candidato.class),
+	@NamedNativeQuery(name = "empleadosSinAsistenciaActual",
+	query = "SELECT * FROM candidato c LEFT OUTER JOIN "
+	+"( SELECT * FROM asistencia a WHERE a.mes = DATE_PART('MONTH', NOW()) AND a.anio = DATE_PART('YEAR', NOW()) ) asisactual"
+	+ " ON asisactual.id_candidato = c.id"
+	+ " WHERE asisactual.id IS NULL AND c.estado = 2",
+	resultClass = Candidato.class) })
 @Entity
 @Table(name = "candidato")
 public class Candidato implements Serializable {
@@ -41,10 +52,12 @@ public class Candidato implements Serializable {
 	
 	@OneToMany(mappedBy = "candidato", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Asistencia> asistenciasMensuales;
 
 	@OneToMany(mappedBy = "candidato", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Falta> faltas;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -57,10 +70,12 @@ public class Candidato implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_candidato")
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Habilidad> habilidades;
 	
 	@OneToMany(mappedBy = "candidato", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Cargo> cargos;
 	
 	public Candidato() {
@@ -132,6 +147,14 @@ public class Candidato implements Serializable {
 
 	public Character getSexo() {
 		return sexo;
+	}
+	
+	public String getSexoString() {
+		switch(sexo) {
+			case 'F': return "Femenino";
+			case 'M': return "Masculino";
+			default: return "";
+		}
 	}
 
 	public void setSexo(Character sexo) {
@@ -231,11 +254,9 @@ public class Candidato implements Serializable {
 	public String toString() {
 		return "Candidato [id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", telefono=" + telefono
 				+ ", correo=" + correo + ", pais=" + pais + ", ciudad=" + ciudad + ", sexo=" + sexo + ", curriculum="
-				+ curriculum + ", estado=" + estado + ", asistenciasMensuales=" + asistenciasMensuales + ", faltas="
-				+ faltas + ", palabrasClaves=" + palabrasClaves + ", habilidades=" + habilidades + ", cargos=" + cargos
-				+ "]";
+				+ curriculum + ", estado=" + estado + "]";
 	}
-
-		
+	
+	
 		
 }

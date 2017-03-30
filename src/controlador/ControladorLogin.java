@@ -39,9 +39,7 @@ public class ControladorLogin extends HttpServlet {
 		String user = request.getParameter("Usuario");
 		String pass = request.getParameter("Contrasena");
 		
-		Usuario usuario = servicioUsuario.getUsuarioPorId(1);
-		System.out.println(usuario);
-		//Usuario usuario = servicioUsuario.validarUsuario(user, pass) ;
+		Usuario usuario = servicioUsuario.validarUsuario(user, pass) ;
 		if (usuario==null)
 		{
 			System.out.println("usuario no encontrado");

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name = "cobro")
 public class Cobro implements Serializable {
@@ -25,6 +27,7 @@ public class Cobro implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cliente")
+	@JsonIgnore
 	private Cliente cliente;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -144,13 +147,6 @@ public class Cobro implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Cobro [id=" + id + ", fecha_emision=" + fecha_emision + ", descripcion=" + descripcion + ", monto="
-				+ monto + ", comprobante=" + comprobante + ", cliente=" + cliente + ", proyecto=" + proyecto + ", mes="
-				+ mes + "]";
 	}
 	
 	

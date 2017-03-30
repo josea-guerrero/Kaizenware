@@ -22,13 +22,11 @@ public class Asistencia implements Serializable {
 	
 	private Integer anio;
 	
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_candidato")
-	private Candidato candidato;
-	
+	private Candidato candidato;	
 
 	public Asistencia() {
-		super();
 	}
 
 	public Integer getId() {
@@ -101,12 +99,6 @@ public class Asistencia implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Asistencia [id=" + id + ", horas_trabajadas=" + horas_trabajadas + ", mes=" + mes + ", anio=" + anio
-				+ ", candidato=" + candidato.getId() + "]";
 	}
 	
 }

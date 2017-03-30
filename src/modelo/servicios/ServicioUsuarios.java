@@ -4,8 +4,10 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
+import modelo.dao.CandidatoDAO;
 import modelo.dao.RolDAO;
 import modelo.dao.UsuarioDAO;
+import modelo.dto.Candidato;
 import modelo.dto.Rol;
 import modelo.dto.Usuario;
 
@@ -13,6 +15,7 @@ public class ServicioUsuarios {
 	
 	private UsuarioDAO usuarioDAO;
 	private RolDAO rolDAO;
+	private CandidatoDAO candidatoDAO;
 	
 	private static ServicioUsuarios instancia;	
 	public static ServicioUsuarios getInstancia() {
@@ -26,6 +29,7 @@ public class ServicioUsuarios {
 		super();
 		this.usuarioDAO = UsuarioDAO.getInstancia();
 		this.rolDAO = RolDAO.getInstancia();
+		this.candidatoDAO = CandidatoDAO.getInstancia();
 	}
 	
 	public List<Usuario> getUsuarios() {
@@ -39,6 +43,10 @@ public class ServicioUsuarios {
 		return roles;
 	}
 	
+	public List<Candidato> getEmpleadosSinUsuario() {
+		return this.candidatoDAO.EmpleadosSinUsuario();	
+	}
+	
 	public Usuario getUsuarioPorId(Serializable id) {
 		if (id != null) {
 			return this.usuarioDAO.get(id);
@@ -50,7 +58,7 @@ public class ServicioUsuarios {
 	{
 		
 		    List<Usuario> usuarios = this.usuarioDAO.getPorNombre(nombre);
-		    if(!usuarios.isEmpty())
+		    if(usuarios != null && !usuarios.isEmpty())
 		    {
 		    	Usuario user = usuarios.get(0);
 		    	if(user.getContrasena().equals(contrasena))
@@ -61,7 +69,6 @@ public class ServicioUsuarios {
 		    }
 		    
 		    return null;
-		
 	}
 
 	public Rol getRolPorId(Serializable id) {

@@ -3,6 +3,8 @@ package modelo.dto;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 
 @Entity
@@ -31,6 +33,7 @@ public class Usuario implements Serializable
 	
 	@OneToOne(cascade= CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name = "id_candidato")
+	@JsonIgnore
 	private Candidato candidato;
 
 	public Usuario() {
@@ -133,13 +136,6 @@ public class Usuario implements Serializable
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nombre_usuario=" + nombre_usuario + ", contrasena=" + contrasena
-				+ ", contrasena_confirma=" + contrasena_confirma + ", foto_perfil=" + foto_perfil + ", rol=" + rol
-				+ ", candidato=" + candidato + "]";
 	}
 	
 }

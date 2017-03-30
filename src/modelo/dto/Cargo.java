@@ -2,9 +2,9 @@ package modelo.dto;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -29,6 +29,7 @@ public class Cargo implements Serializable {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_proyecto")
+	@JsonIgnore
 	private Proyecto proyecto;
 	
 	private Float remuneracion;
@@ -47,6 +48,7 @@ public class Cargo implements Serializable {
 	
 	@OneToMany(mappedBy = "cargo", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Pago> pagos;
 
 	public Cargo() {
@@ -189,12 +191,4 @@ public class Cargo implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Cargo [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", tipoCargo=" + tipoCargo
-				+ ", proyecto=" + proyecto + ", remuneracion=" + remuneracion + ", monto_cobro=" + monto_cobro
-				+ ", tipo_remuneracion=" + tipo_remuneracion + ", divisa=" + divisa + ", candidato=" + candidato
-				+ ", pagos=" + pagos + "]";
-	}
-	
 }

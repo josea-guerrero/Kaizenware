@@ -3,6 +3,7 @@ package modelo.dto;
 import java.util.List;
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -18,18 +19,22 @@ public class Mes {
 	
 	@OneToMany(mappedBy = "mes", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Asistencia> asistencias;
 	
 	@OneToMany(mappedBy = "mes", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<DiaFeriado> diasFeriados;
 	
 	@OneToMany(mappedBy = "mes", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Pago> pagos;
 	
 	@OneToMany(mappedBy = "mes", fetch = FetchType.LAZY)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JsonIgnore
 	private List<Cobro> cobros;
 
 	public Mes() {
@@ -120,7 +125,5 @@ public class Mes {
 	public String toString() {
 		return "Mes [id=" + id + ", mes=" + mes + ", diasFeriados=" + diasFeriados + "]";
 	}
-	
-	
 	
 }

@@ -147,11 +147,4 @@ public class Entrevista implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Entrevista [id=" + id + ", fecha=" + fecha + ", tipoEntrevista=" + tipoEntrevista + ", entrevistador="
-				+ entrevistador + ", evaluacion=" + evaluacion + ", observaciones=" + observaciones + ", candidato="
-				+ candidato + ", cargo=" + cargo + "]";
-	}
-
 }

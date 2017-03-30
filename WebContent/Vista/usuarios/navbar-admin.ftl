@@ -50,7 +50,7 @@
                         <a href="VCliente.html">Clientes</a>
                     </li>
                     <li class="second-lvl">
-                        <a href="VCandidato.html">Candidatos</a>
+                        <a href="Candidato">Candidatos</a>
                     </li>
                     <li class="second-lvl">
                         <a href="VProyecto.html">Proyectos</a>
@@ -65,7 +65,7 @@
                         <a href="VDiaFeriado.html">D&iacute;as Feriados</a>
                     </li>
                     <li class="second-lvl last">
-                        <a href="VUsuario.html">Registrar Usuarios</a>
+                        <a href="Usuario" method="get">Usuarios</a>
                     </li>
                 </ul>
             </li>
@@ -76,7 +76,7 @@
                         <a href="VEntrevista.html">Entrevistas</a>
                     </li>
                     <li class="second-lvl">
-                        <a href="VAsistencia.html">Asistencias</a>
+                        <a href="Asistencia">Asistencias</a>
                     </li>
                     <li class="second-lvl">
                         <a href="falta.html">Faltas</a>
@@ -96,7 +96,7 @@
                         <a href="VConsultarCliente.html">Clientes</a>
                     </li>
                     <li class="second-lvl">
-                        <a href="VConsultarCandidato.html">Candidatos</a>
+                        <a href="Candidato">Candidatos</a>
                     </li>
                     <li class="second-lvl">
                         <a href="VConsultarEntrevistas.html">Entrevistas</a>
