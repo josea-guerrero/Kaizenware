@@ -1,32 +1,32 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
-<head>
-	     <meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Dias Feriados</title>
+        <title>KaizenWare | Home</title>
         <!-- logo barra -->
         <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logo1.png"/>
 
 
-				       <!--estilo de formularios-->
-				       <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-				        <!--estilo de botones, al quitar se ven planos-->
-				        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
-				     <!--cabecera + footer + menu-->
-				       <link href="../assets/css/style.css" rel="stylesheet">
-				      <!--separacion entre boton guardar y cancelar-->
-				       <link href="../assets/css/estilos-jose.css" rel="stylesheet">
+       <!--estilo de formularios-->
+       <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <!--estilo de botones, al quitar se ven planos-->
+        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
+      <!--cabecera + footer + menu-->
+      <link href="../assets/css/style.css" rel="stylesheet">
+      <!--separacion entre boton guardar y cancelar-->
+       <link href="../assets/css/estilos-jose.css" rel="stylesheet">
+
 
 
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-
-</head>
- <body class="color-fondo">
+    </head>
+    <body class="color-fondo">
         <div class="main">
 			<header>
                 <nav class="">
@@ -153,6 +153,7 @@
         <div id="menuToggle" class="ion-navicon _ion-android-menu"><i class="fa fa-bars"></i>
         </div>
 	</nav>
+
 			<div id="page-wrapper" class="container-fluid">
 
             <div class="contenedor-principal">
@@ -160,17 +161,17 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                       <h1 class="page-header">
-                             Dias Feriados
-                            <small> GESTIONAR</small>
+                        <h1 class="page-header">
+                            Gesti&oacute;n de Usuarios
+
                         </h1>
 
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="VDiaFeriado.html">Dias Feriados</a>
+                                <i class="fa fa-dashboard"></i>Administrar
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i>
+                                <i class="fa fa-file"></i>Cobros
                             </li>
                         </ol>
                     </div>
@@ -178,82 +179,128 @@
                 <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
+
+                          
+
+
+                        <div class="table-responsive">
+                            <table class="table table-striped text-center">
+                                <thead class="bg-primary">
+                                    <tr>
+                                        <th>Código Cliente</th>
+                                        <th>Razón Social</th>
+                                        <th>Proyecto</th>
+                                        <th>Mes a cancelar</th>
+                                        <th>Horas Trabajadas</th>
+                                        <th>Monto por hora</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tb-empleados">
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary center-block">Procesar Cobro</button>
+
+                        <hr/>
+
 
                         <form role="form">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>Número de Recibo</label>
+                                    <input class="form-control" disabled>
+                                </div>
 
-                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>Código del Cliente</label>
+                                    <input class="form-control" disabled>
+                                </div>
 
-                                <label>Mes</label>
-                                    <select class="form-control">
-                                  <option value="todos">Todos</option>
-                         <option value="enero">Enero</option>
-                         <option value="febrero">Febrero</option>
-                          <option value="marzo">Marzo</option>
-                         <option value="abril">Abril</option>
-                         <option value="mayo">Mayo</option>
-                          <option value="Junio">Junio</option>
-                         <option value="julio">Julio</option>
-                         <option value="agosto">Agosto</option>
-                          <option value="septiembre">Septiembre</option>
-                         <option value="octubre">Octubre</option>
-                         <option value="noviembre">Noviembre</option>
-                         <option value="diciembre">Diciembre</option>
-                                </select>
-
-
-                           <table class="table table-bordered table-striped text-center">
-                           <thead class="bg-primary">
-                           <tr>
-                                <th>Día</th>
-                                <th>Mes</th>
-
-                            </tr>
-                            <tbody id="tb-utilidad-empleado">
-                            <tr>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-
-                            </tr>
-
-
-
-            </table>
-
-                                 <p class="help-block">Opciones:</p>
-                                  <button type="submit" class="btn btn-primary">Eliminar</button>
-                                  <button type="reset" class="btn btn-primary">Cancelar</button>
-                                  <br>
-                                  <br>
-
-                                <div  class="col-xs-6 ">
-                                <label> Seleccione Dia Feriado:</label>
-                                <input class="form-control" type="date">
-                                 <button type="submit" class="btn btn-primary">Agregar</button>
-                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label>Razón Social</label>
+                                    <input class="form-control" disabled>
+                                </div>
                             </div>
 
-</tbody>
-</thead>
-</table>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-      <!--
+                            <div class="col-lg-6">
+                                <div class="form-group center-block">
+                                    <label>Fecha de Emisión</label>
+                                    <input type="date" class="form-control" disabled>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Proyecto</label>
+                                    <input class="form-control" disabled>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Monto a Cobrar</label>
+                                    <input class="form-control" disabled>
+                                    <p class="help-block">Horas trabajadas * Monto por hora</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <button type="submit" class="btn btn-primary center-block mb-20">Guardar</button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="reset" class="btn btn-primary center-block mb-20">Cancelar</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
 
         <footer class="footer">
                 <div class="container">
@@ -263,7 +310,7 @@
                         </div>
                     </div>
                 </div>
-        </footer>  -->
+        </footer>
         </div>
 
         <!-- Scripts section -->

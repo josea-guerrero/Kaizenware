@@ -1,18 +1,18 @@
 <nav class="menu nav-scroll" id="theMenu" role="navigation">
 <div class="menu-wrap">
 <div>
-<h1 class="logo"><a class="center-block" href="../index.html#home">KAIZENWARE</a></h1>
+<h1 class="logo"><a class="center-block" href="">KAIZENWARE</a></h1>
 <i class="fa fa-arrow-rigth menu-close"></i>
         <div class="small-img">
             <a href="#">
-                <img class="img-circle center-block" src=".../assets/images/img2.jpg" alt="Foto de Perfil">
+                <img class="img-circle center-block" src="assets/images/usuario-simbolo.jpg" alt="Foto de Perfil">
             </a>
 
         </div>
         <table>
             <tr>
                 <td>
-                    <a href="miperfil.html"><sub>Perfil</sub></a>
+                    <a href="MyProfile"><sub> Mi Perfil</sub></a>
                 </td>
                 <td>
                     <a href="Logout" method= "get" ><sub>Cerrar Sesi&oacute;n</sub></a>
@@ -22,38 +22,7 @@
     </div>
         <hr/>
         <ul>
-            <a href="../index.html"><li>Home</li></a>
-
-
-            <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#informacion">Mi Información</a>
-                <ul id="informacion" class="collapse">
-
-
-                    <li class="second-lvl">
-                        <a href="">Mis Cargos</a>
-                    </li>
-
-                    <li class="second-lvl last">
-                        <a href="">Ver D&iacute;as Feriados</a>
-                    </li>
-
-                    <li class="second-lvl first">
-                        <a href="">Mis Entrevistas</a>
-                    </li>
-                    <li class="second-lvl">
-                        <a href="">Ver Record de Asistencias</a>
-                    </li>
-
-                    <li class="second-lvl last">
-                        <a href="pago.html">Record de Pagos</a>
-                    </li>
-
-                </ul>
-            </li>
-
-
-
+             <a href="Vista/PanelControlEmpleado.ftl"><li>Panel de Control</li></a>
         </ul>
     </div>
 <!-- Menu button -->

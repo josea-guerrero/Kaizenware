@@ -87,11 +87,11 @@ $(function() {
         // Chart data records -- each entry in this array corresponds to a point on
         // the chart.
         data: [{
-            d: '2012-10-01',
-            visits: 802
+           
+           c: $('#nombres').val($("#nombres"+id).text()), u: $('#nombre').val($("#nombre"+id).text())
+            
         }, {
-            d: '2012-10-02',
-            visits: 783
+            
         }, {
             d: '2012-10-03',
             visits: 820
@@ -186,7 +186,7 @@ $(function() {
         ykeys: ['visits'],
         // Labels for the ykeys -- will be displayed when you hover over the
         // chart.
-        labels: ['Visits'],
+        labels: ['clientes'],
         // Disables line smoothing
         smooth: false,
         resize: true

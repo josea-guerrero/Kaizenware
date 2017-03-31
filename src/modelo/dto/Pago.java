@@ -19,7 +19,7 @@ public class Pago implements Serializable {
 	
 	private String descripcion;
 	
-	private Float monto;
+	private Double monto;
 	
 	private String comprobante;
 	
@@ -28,8 +28,8 @@ public class Pago implements Serializable {
 	private Mes mes;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_cargo")
-	private Cargo cargo;
+	@JoinColumn(name = "id_candidato")
+	private Candidato candidato;
 
 	public Pago() {
 		super();
@@ -73,7 +73,7 @@ public class Pago implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Float getMonto() {
+	public Double getMonto() {
 		return monto;
 	}
 	
@@ -81,7 +81,7 @@ public class Pago implements Serializable {
 		return monto.toString();
 	}
 
-	public void setMonto(Float monto) {
+	public void setMonto(Double monto) {
 		this.monto = monto;
 	}
 
@@ -101,12 +101,12 @@ public class Pago implements Serializable {
 		this.mes = mes;
 	}
 
-	public Cargo getCargo() {
-		return cargo;
+	public Candidato getCandidato() {
+		return candidato;
 	}
 
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
 	}
 
 	@Override

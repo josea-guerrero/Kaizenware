@@ -25,6 +25,11 @@ public class DiaFeriado implements Serializable {
 	public DiaFeriado() {
 		super();
 	}
+	
+	public DiaFeriado(Integer d, String nom) {
+		dia = d;
+		nombre = nom;	
+	}
 
 	public Integer getId() {
 		return id;

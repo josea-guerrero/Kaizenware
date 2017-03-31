@@ -101,6 +101,146 @@
     <servlet-name>controlador_candidato</servlet-name>
     <url-pattern>/Candidato</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  <servlet-name>controlador_myprofile</servlet-name>
+    <servlet-class>controlador.ControladorMyProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_myprofile</servlet-name>
+    <url-pattern>/MyProfile</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>controlador_pais</servlet-name>
+    <servlet-class>controlador.ControladorPais</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_pais</servlet-name>
+    <url-pattern>/Pais</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>controlador_dia_feriado</servlet-name>
+    <servlet-class>controlador.ControladorDiaFeriado</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_dia_feriado</servlet-name>
+    <url-pattern>/DiaFeriado</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>controlador_palabra_clave</servlet-name>
+    <servlet-class>controlador.ControladorPalabraClave</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_palabra_clave</servlet-name>
+    <url-pattern>/PalabrasClaves</url-pattern>
+  </servlet-mapping>
+  
+ 
+  <servlet>
+    <servlet-name>controlador_cliente</servlet-name>
+    <servlet-class>controlador.ControladorCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_cliente</servlet-name>
+    <url-pattern>/Cliente</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>controlador_proyecto</servlet-name>
+    <servlet-class>controlador.ControladorProyecto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_proyecto</servlet-name>
+    <url-pattern>/Proyecto</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>controlador_cargo</servlet-name>
+    <servlet-class>controlador.ControladorCargo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_cargo</servlet-name>
+    <url-pattern>/Cargo</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>controlador_asignarcargos</servlet-name>
+    <servlet-class>controlador.ControladorAsignarCandidatoCargo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_asignarcargos</servlet-name>
+    <url-pattern>/Asignar</url-pattern>
+  </servlet-mapping>
+ 
+ 
+  <servlet>
+    <servlet-name>controlador_entrevista</servlet-name>
+    <servlet-class>controlador.ControladorEntrevista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_entrevista</servlet-name>
+    <url-pattern>/Entrevista</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+    <servlet-name>controlador_cobro</servlet-name>
+    <servlet-class>controlador.ControladorCobro</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_cobro</servlet-name>
+    <url-pattern>/Cobro</url-pattern>
+  </servlet-mapping>
+ 
+ <servlet>
+    <servlet-name>controlador_pago</servlet-name>
+    <servlet-class>controlador.ControladorPago</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_pago</servlet-name>
+    <url-pattern>/Pago</url-pattern>
+  </servlet-mapping>
+ 
+   
+ <servlet>
+    <servlet-name>controlador_consultarhorastrabajadas</servlet-name>
+    <servlet-class>controlador.ControladorHorasTrabajadas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_consultarhorastrabajadas</servlet-name>
+    <url-pattern>/ConsultarHorasTrabajadas</url-pattern>
+  </servlet-mapping>
+  
+  
+ <servlet>
+    <servlet-name>controlador_consultarpagos</servlet-name>
+    <servlet-class>controlador.ControladorConsultarPagos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_consultarpagos</servlet-name>
+    <url-pattern>/ConsultarPagos</url-pattern>
+  </servlet-mapping>
+  
+  
+ <servlet>
+    <servlet-name>controlador_consultarutilidad</servlet-name>
+    <servlet-class>controlador.ControladorCsonsultarUtilidad</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_consultarutilidad</servlet-name>
+    <url-pattern>/Utilidad</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>controlador_asistenciafalta</servlet-name>
+    <servlet-class>controlador.ControladorAsistenciaFaltas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlador_asistenciafalta</servlet-name>
+    <url-pattern>/asistfalt</url-pattern>
+  </servlet-mapping>
+
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>FreeMarker MVC Views</web-resource-name>

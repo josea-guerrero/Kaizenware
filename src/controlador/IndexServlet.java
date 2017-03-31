@@ -1,6 +1,10 @@
 package controlador;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -9,12 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import modelo.dao.CandidatoDAO;
-import modelo.dto.Candidato;
-import modelo.dto.Pais;
-import modelo.dto.Usuario;
-import modelo.servicios.ServicioCandidatos;
-import modelo.servicios.ServicioUsuarios;
 
 @WebServlet("/IndexServlet")
 public class IndexServlet extends HttpServlet {
@@ -25,18 +23,6 @@ public class IndexServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		ServicioCandidatos serviCandidatos = ServicioCandidatos.getInstancia();
-//		Candidato candidato = serviCandidatos.getCandidatoPorId(3);
-//		System.out.println(candidato);
-		
-//		ServicioUsuarios serviUsua = ServicioUsuarios.getInstancia();
-//		Usuario usu = serviUsua.getUsuarioPorId(1);
-//		System.out.println(usu);
-		
-//		CandidatoDAO candiDAO = CandidatoDAO.getInstancia();
-//		List<Candidato> empleados = candiDAO.EmpleadosSinUsuario();
-//		System.out.println(empleados);
 		request.getRequestDispatcher("/index.ftl").forward(request, response);
 	}
 

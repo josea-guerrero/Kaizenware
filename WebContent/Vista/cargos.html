@@ -5,19 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Usuario</title>
+        <title>Cargo</title>
         <!-- logo barra -->
         <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logo1.png"/>
 
-
-				       <!--estilo de formularios-->
-				       <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-				        <!--estilo de botones, al quitar se ven planos-->
-				        <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
-				     <!--cabecera + footer + menu-->
-				       <link href="../assets/css/style.css" rel="stylesheet">
-				      <!--separacion entre boton guardar y cancelar-->
-				       <link href="../assets/css/estilos-jose.css" rel="stylesheet">
+				<!--estilo de formularios-->
+				<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+				 <!--estilo de botones, al quitar se ven planos-->
+				 <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
+			<!--cabecera + footer + menu-->
+				<link href="../assets/css/style.css" rel="stylesheet">
+			 <!--separacion entre boton guardar y cancelar-->
+				<link href="../assets/css/estilos-jose.css" rel="stylesheet">
+				
+		
 
 
         <!--[if lt IE 9]>
@@ -29,7 +30,6 @@
  <body class="color-fondo">
         <div class="main">
 			<header>
-               <header>
                 <nav class="">
                         <div>
                         <div class="container">
@@ -146,8 +146,6 @@
                             </li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
         <!-- Menu button -->
@@ -162,13 +160,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                      <h1 class="page-header">
-                             Usuario
+                             Cargo
                             <small> GESTIONAR</small>
                         </h1>
 
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="">Usuario</a>
+                                <i class="fa fa-dashboard"></i>  <a href="VCargos.html">Cargo</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i> <a href=""></a>
@@ -178,75 +176,125 @@
                 </div>
                 <!-- /.row -->
 
-
-
-
                 <div class="row">
                     <div class="col-lg-9">
 
                         <form role="form">
-
-                          <div class="form-group">
+                         <div class="form-group">
                         <fieldset>
-                      <p class="help-block">Datos del USuario</p>
-                        <label>Cédula:</label>
+
+                        <label>Proyecto</label>
                             <div class="form-group">
 
                                 <div class="col-xs-6 ">
-                                    <input class="form-control" placeholder="Introduzca Cedula/Rif">
 
+                                    <select class="form-control">
+                                    <option> 0001- P1</option>
+                                    <option>  0002- P2</option>
+                                    <option> 0003- P3</option>
+                                    <option> 0004- P4</option>
+                                    <option> 0005- P5</option>
+                                </select>
                                 </div>
                                     <div class="col-xs-6 ">
 
-
-                                         <button type="submit" class="btn btn-primary">Buscar</button>
+                                       <button type="submit" class="btn btn-primary">Ver todos los Cargos</button>
                                  </div>
                                  </div>
                         </fieldset>
 
-                                </div>
 
 
 
-                            <div class="form-group">
-                             <div class="col-xs-6">
 
-                                <label>Rol</label>
-                                    <select class="form-control">
-                                    <option>vacio</option>
-
-                                </select>
-
-                                  <label>UserName:</label>
-                                <input class="form-control" placeholder="Introduzca Usuario">
-                                  <label>Contraseña:</label>
-                                <input class="form-control" placeholder="Introduzca Contraseña">
-                                <label>Estatus:</label>
-                                <input class="form-control" placeholder="Introduzca Estatus">
-                            </div>
-                            </div>
 
 
 
 
                             <div class="form-group">
                              <div class="col-xs-12">
+                            	<p class="help-block">Cargos por Proyecto </p>
+                               <div class="form-group">
+                             <div class="col-xs-12">
+
+                              <table class="table table-bordered table-striped text-center">
+                           <thead class="bg-primary">
+                           <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Empleado Asignado</th>
+
+                            </tr>
+                            <tbody id="tb-utilidad-empleado">
+                            <tr>
+
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            <tr>
+
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            <tr>
+
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+
+                            </tr>
+                            </tbody>
+
+
+                            </table>
+
+
+                                <p class="help-block">Datos del Cargo:</p>
+                                  <label>Codigo:</label>
+                                <input class="form-control" placeholder="Introducir Código">
+                                  <label>Nombre:</label>
+                                <input class="form-control" placeholder="Introducir Nombre">
+                                <label>Descripción:</label>
+                                  <textarea class="form-control" rows="5" placeholder="Introducir Descripción"></textarea>
+
+                            </div>
+                            </div>
+
+
+                            <div class="form-group">
+                             <div class="col-xs-12">
                                  <p class="help-block">Opciones:</p>
-                                  <button type="submit" class="btn btn-primary">Guardar</button>
+                                  <button type="submit" class="btn btn-primary">Registrar</button>
                                   <button type="submit" class="btn btn-primary">Modificar</button>
                                   <button type="submit" class="btn btn-primary">Eliminar</button>
                                   <button type="reset" class="btn btn-primary">Cancelar</button>
                             </div>
-                             </div>
+                            </div>
 
+
+
+
+                            </div>
+                        </div>
 
                 </form>
                </div>
                </div>
                </div>
                </div>
+               </div>
 
-        <footer class="footer">
+
+
+      <footer class="footer">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">

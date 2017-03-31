@@ -43,9 +43,14 @@
 	    <#include "usuarios/navbar-manager.ftl">
 	    </#if>
 	<!-- NAVBAR END -->
+
 	
 	<!-- CONTENT START -->
 	<div id="content" class="col-md-10 col-md-offset-1">
+	
+		<h1 class="page-header">
+           Gesti&oacute;n de Candidatos
+        </h1>
 
 		<!-- VENTANA START -->
 		<div class="modal fade" id="ventana" tabindex="-1" role="dialog"
@@ -59,22 +64,23 @@
 					</div>
 					<div class="modal-body">
 						<div id="mensajesError"></div>
+						</div>
 						<form id="formCandidato" name="candidato">
 							<div class="form-group">
 								<input type="hidden" id="idString" name="idString" />								
-								</br>
+								<br/>
 								<label for="nombres">Nombres</label>
 								<input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres" maxlength="50" required/>
-								</br>
+								<br/>
 								<label for="apellidos" placeholder="Apellidos" >Apellidos</label>
 								<input type="text" class="form-control" id="apellidos" name="apellidos" maxlength="50" required />
-								</br>
+								<br/>
 								<label for="telefono">Telefono</label>																									
 								<input type="text" class="form-control" id="telefono" name="telefono" maxlength="13" required />
-								</br>
+								<br/>
 								<label for="correo">Correo</label>																									
 								<input type="text" class="form-control" id="correo" name="correo" maxlength="100" required/>
-								</br>
+								<br/>
 								<label for="id_pais">Pais</label>
 								<select id="id_pais" name="id_pais" class="form-control" >
 									<option value="-1">Seleccione</option> 
@@ -82,10 +88,10 @@
 										<option value="${pais.idString}">${pais.pais}</option> 
 									</#list>
 								</select>
-								</br>
+								<br/>
 								<label for="ciudad">Ciudad</label>
 								<input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" maxlength="100" />
-								</br>										
+								<br/>										
 								<label for="sexo">Sexo</label>
 								<select id="sexo" name="sexo" class="form-control" >
 									<option value="-1">Seleccione</option> 
@@ -99,11 +105,10 @@
 						<button type="button" id="btnGuardar" class="btn btn-primary"
 							onclick="onGuardar();"><i class="glyphicon glyphicon-ok"></i>&nbsp;Guardar</button>
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i>&nbsp;Cerrar</button>
-						</form>
+						
 					</div>
 				</div>
 			</div>
-		</div>
 		<!-- VENTANA END -->		
 		
 		<!-- BARRA DE HERRAMIENTAS START -->
@@ -113,7 +118,8 @@
 					<tr>
 						<td>
 							<a class="navbar-btn btn-info btn" data-toggle="modal"
-							data-target="#ventana" onclick="onIncluir();"><i
+							data-target="#ventana" onclick="onIncluir();">
+							<i
 							class="glyphicon glyphicon-plus"></i>&nbsp;Incluir</a></td>
 						<td>
 							<div id="mensajes" class="col-md-offset-1"></div>
@@ -163,7 +169,7 @@
 									<option value="${palabra.idString}">${palabra.palabra}</option> 
 								</#list>
 							</select>
-						</span>
+						
 						</td>
 						<td><select id="habilidades${candidato.idString}" name="habilidades" class="form-control" >
 								<option value="-1">Desplegar</option> 
@@ -171,7 +177,7 @@
 									<option value="${habilidad.idString}">${habilidad.habilidad}</option> 
 								</#list>
 							</select>
-						</span>
+						
 						</td>
 						<td><a class="btn-success btn" data-toggle="modal"
 							data-target="#ventana" onclick="onConsultar('${candidato.idString}');">

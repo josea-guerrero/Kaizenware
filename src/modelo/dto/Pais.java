@@ -31,6 +31,10 @@ public class Pais implements Serializable{
 		super();
 	}
 	
+	public Pais(String nombre){
+		pais = nombre;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

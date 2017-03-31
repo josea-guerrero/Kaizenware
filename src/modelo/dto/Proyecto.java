@@ -79,6 +79,7 @@ public class Proyecto implements Serializable {
 		this.descripcion = descripcion;
 	}
 
+	/*
 	public Calendar getFecha_registro() {
 		return fecha_registro;
 	}
@@ -92,7 +93,7 @@ public class Proyecto implements Serializable {
 	
 	public void setFecha_registro(Calendar fecha_registro) {
 		this.fecha_registro = fecha_registro;
-	}
+	}*/
 
 	public Integer getEstado() {
 		return estado;
@@ -105,7 +106,7 @@ public class Proyecto implements Serializable {
 	public Calendar getFecha_finalizado() {
 		return fecha_finalizado;
 	}
-
+/*
 	public String getFechaFinalizadoString() {
 		Integer dia = fecha_finalizado.get(Calendar.DATE);
 		Integer mes = fecha_finalizado.get(Calendar.MONTH) + 1;
@@ -116,7 +117,7 @@ public class Proyecto implements Serializable {
 	public void setFecha_finalizado(Calendar fecha_finalizado) {
 		this.fecha_finalizado = fecha_finalizado;
 	}
-
+*/
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -166,5 +167,9 @@ public class Proyecto implements Serializable {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "Proyecto [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", cliente=" + cliente + "]";
+	}
 	
 }

@@ -3,11 +3,17 @@ package modelo.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+
 import modelo.dao.utils.GenericDAO;
+import modelo.dao.utils.Sesion;
+import modelo.dto.Asistencia;
 import modelo.dto.Falta;
 
 public class FaltaDAO extends GenericDAO {
 
+	private Sesion sesion;
 	private static FaltaDAO instancia;	
 	public static FaltaDAO getInstancia() {
 		if (instancia == null) {
@@ -18,6 +24,7 @@ public class FaltaDAO extends GenericDAO {
 	
 	private FaltaDAO() {
 		super();
+		this.sesion = Sesion.getInstancia();
 	}
 	
 	public List<Falta> queryAll() {	
@@ -25,7 +32,20 @@ public class FaltaDAO extends GenericDAO {
 	}
 
 	public Falta get(Serializable id) {
-		return (Falta)super.get(Falta.class, id);
+		Session session = this.sesion.openSession();  
+        Falta falta = null;        
+        try{
+            falta = (Falta) session.get(Falta.class,  id);
+            Hibernate.initialize(falta.getCandidato());
+        } 
+        catch (Exception e) {
+        	System.out.println("Error obteniendo asistencia");
+        	e.printStackTrace();        
+        }  
+        finally {  
+            session.close();  
+        }             
+	    return falta;
 	}
 
 	public void save(Falta falta) {		

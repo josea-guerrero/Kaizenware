@@ -42,8 +42,13 @@
 
 </head>
 
+
+
 <!--body-login en etilos-jose.css-->
 <body class="body-login">
+
+
+
 
 <!--seccion del header-->
 <nav class="navbar navbar-kaizen">
@@ -60,7 +65,14 @@
                         </div>
                 </nav>
 
+<!--seccion de mensjas-->
+<div id="mensajesError"></div>
+<div id="mensajes" class="col-md-offset-1"></div>
+
+<!--fin seccion de mensjas-->
+
     <div class="container ">
+    
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
            <div class="login-panel panel panel-default">
@@ -71,10 +83,10 @@
                 <form role="form" method="post" action="Login">
                  <fieldset>
                   <div class="form-group">
-                    <input class="form-control" placeholder="Usuario" name="Usuario" type="text" autofocus>
+                    <input id ="usuario" class="form-control" placeholder="Usuario" name="Usuario" type="text" autofocus>
                   </div>
                   <div class="form-group">
-                   <input class="form-control" placeholder="Contraseña" name="Contrasena" type="password" >
+                   <input id="contrasena" class="form-control" placeholder="Contraseña" name="Contrasena" type="password" >
                   </div>
 
                     <input  class="btn btn-lg btn-success btn-block" type="submit" value="Ingresar">
@@ -89,9 +101,10 @@
 
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <sript src="../assets/js/loginJS.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <sript src="assets/js/loginJS.js"></script>
 
+<script src="resources/js/pages/login.js"></script>
 
 </body>
 

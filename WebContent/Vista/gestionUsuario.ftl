@@ -1,16 +1,30 @@
 <html>
 <head>
-	<title>Store</title>
+	<title>Gesti&oacute;n de Usuario</title>
+	<!-- Recursos de Kaizenware 
+
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+
+	-->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/LOGO-KG.png"/>
+	
+	<!-- Recursos del Prof -->
 	<link href="resources/css/bootstrap.css" rel="stylesheet">
 	<link href="resources/css/dataTables.bootstrap.min.css" rel="stylesheet">
 	<link href="resources/css/screen.css" rel="stylesheet">
 	<script src="resources/js/jquery.js"></script>
 	<script src="resources/js/jquery.validate.min.js"></script>
 	<script src="resources/js/jquery.numeric.min.js"></script>
-	<script src="resources/js/pages/productos.js"></script>
+	<script src="resources/js/pages/usuarios.js"></script>
 </head>
 
-<body class="col-md-10 col-md-offset-1">
+<body>
 	<!-- NAVBAR START -->
       <#include "usuarios/navbar-admin.ftl">
 	<!-- NAVBAR END -->
@@ -21,8 +35,16 @@
 	<!-- HEADER END -->
 	
 	<!-- CONTENT START -->
-	<div id="content">
+	
+	
+	
+	<div id="content" class="col-md-10 col-md-offset-1">
 
+ <h1 class="page-header">
+                            Gesti&oacute;n de Usuarios
+
+                        </h1>
+                       
 		<!-- VENTANA START -->
 		<div class="modal fade" id="ventana" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -42,26 +64,31 @@
 								<label for="nombre">Nombre de Usuario</label>
 								<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" maxlength="80" required/>
 								</br>
-								<label for="contrasena" placeholder="Contraseña" >Contraseña</label>
-								<input type="text" class="form-control" id="contrasena" name="contrasena" placeholder="contraseña" maxlength="80" required/>
+								<label for="contrasena" placeholder="Contrase&ntildea" >Contrase&ntildea</label>
+								<input type="text" class="form-control" id="contrasena" name="contrasena" placeholder="contrase&ntilde;a" maxlength="80" required/>
 								</br>
-								<label for="idCandidato">Candidato</label>																									
-								<select id="idCandidato" name="idCandidato" class="form-control" >
+								<label for="candidato">Empleado</label>																									
+								<select id="candidato" name="candidato" class="form-control" >
 									<option value="-1">Seleccione</option> 
-									<#list empleadoList as empleado>
+									<#list empleadosList as empleado>
 										<option value="${empleado.id}">${empleado.nombres} ${empleado.apellidos}</option> 
 									</#list>
 								</select>
 								</br>
 								<label for="rol">Rol</label>
-								<input type="text" class="form-control" id="rol" name="rol" placeholder="rol" maxlength="6" required/>
+									<select id="rol" name="rol" class="form-control" >
+									<option value="-1">Seleccione</option> 
+									<#list rolList as rol>
+										<option value="${rol.id}">${rol.rol}</option> 
+									</#list>
+								</select>
 								</br>
 								
-								</br>
+							<!--	</br>
 								<label for="fotoPerfil">Foto de Perfil</label>
 								<input type="text" class="form-control" id="foto" name="foto" placeholder="foto de perfil" maxlength="6" required/>
 								</br>
-																		
+							-->									
 							</div>
 						</form>
 					</div>
@@ -100,10 +127,11 @@
 				<thead>
 					<tr>
 						<th>Nombre</th>
-						<th>Contraseña</th>
-						<th>Candidato</th>
+						<th>Contrase&ntilde;a</th>
 						<th>Rol</th>
-						<th>Foto de perfil</th>
+						<th>Empleado</th>
+						
+						<!--<th>Foto de perfil</th>-->
 						
 						<th>Consultar</th>
 						<th>Modificar</th>
@@ -114,35 +142,27 @@
 					<#list usuariosList as usuario>
 					<tr>						
 						<td><span id="nombre${usuario.idString}">${usuario.nombre_usuario}</span></td>
-						<td><span id="contraseña${usuario.idString}">${usuario.contrasena}</span></td>
-						<td><span id="candidato${usuario.idString}">${usuario.candidato.nombre}</span>
+						<td><span id="contrasena${usuario.idString}">${usuario.contrasena}</span></td>
+						<td><span id="rol${usuario.idString}">${usuario.rol.rol}</span>
 						<input type="hidden"
-							id="idCandidato${usuario.idString}"
-							value="${usuario.idCandidato}" />
+							id="idRol${usuario.idString}"
+							value="${usuario.rol.id}" />
 						</td>
-						<td><span id="cantidadString${producto.idString}">${producto.cantidadString}</span>
-						<input type="hidden"
-							id="cantidad${producto.idString}"
-							value="${producto.cantidad}" />
-						</td>
-						<td><span id="medidaString${producto.idString}">${producto.medidaString}</span>
-						<input type="hidden"
-							id="medida${producto.idString}"
-							value="${producto.medida}" />
-						</td>
-						<td><span id="precioString${producto.idString}">${producto.precioString}</span>
-						<input type="hidden"
-							id="precio${producto.idString}"
-							value="${producto.precio}" />						
-						</td>
+						<td><span id="candidato${usuario.idString}"> <#if usuario.candidato?? >
+						 												${usuario.candidato.nombres}
+						 											<#else>
+						 											${"No tiene"}
+						                                              </#if></span>
+						
+				
 						<td><a class="btn-success btn" data-toggle="modal"
-							data-target="#ventana" onclick="onConsultar('${producto.idString}');"><i
+							data-target="#ventana" onclick="onConsultar('${usuario.idString}');"><i
 								class="glyphicon glyphicon-eye-open"></i></a></td>
 						<td><a class="btn-warning btn" data-toggle="modal"
-							data-target="#ventana" onclick="onModificar('${producto.idString}');"><i
+							data-target="#ventana" onclick="onModificar('${usuario.idString}');"><i
 								class="glyphicon glyphicon-edit"></i></a></td>
-						<td><a id="btnEliminar${producto.idString}" class="btn-danger btn" data-toggle="confirmation" data-title="Estas seguro?" data-singleton="true" data-popout="true"
-						data-href="javascript:onEliminar('${producto.idString}');"						
+						<td><a id="btnEliminar${usuario.idString}" class="btn-danger btn" data-toggle="confirmation" data-title="Estas seguro?" data-singleton="true" data-popout="true"
+						data-href="javascript:onEliminar('${usuario.idString}');"						
 						data-btn-ok-label="Si" data-btn-ok-icon="glyphicon glyphicon-share-alt" data-btn-ok-class="btn-success" 
 						data-btn-cancel-label="No" data-btn-cancel-icon="glyphicon glyphicon-ban-circle" data-btn-cancel-class="btn-danger">
 						<i class="glyphicon glyphicon-trash"></i></a></td>						
@@ -155,8 +175,21 @@
 	</div>
 	<!-- CONTENT END -->
 	
-	
-	<!-- JAVASCRIPT START -->
+		<!-- JAVASCRIPT START -->
+    <!-- Scripts de Kaizenware 
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="assets/js/jquery-3.1.1.js"></script>
+    <script src="assets/js/desplegable.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    -->
+   
+    <script src="assets/js/script.js"></script>
+ 
+    <!-- Scripts del prof -->
 	<script src="resources/js/bootstrap.js"></script>
 	<script src="resources/js/jquery.dataTables.min.js"></script>
 	<script src="resources/js/dataTables.bootstrap.min.js"></script>

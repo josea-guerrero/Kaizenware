@@ -1,5 +1,10 @@
 package modelo.dto;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.*;
 
@@ -59,6 +64,39 @@ public class Mes {
 	public String getMes() {
 		return mes;
 	}
+	
+	public Month getMonth() {
+		Month month = null;
+		switch(id) {
+		case 1: month = Month.JANUARY;
+				break;
+		case 2: month = Month.FEBRUARY;
+				break;
+		case 3: month = Month.MARCH;
+				break; 
+		case 4: month = Month.APRIL;
+				break;		
+		case 5: month = Month.MAY;
+				break;
+		case 6: month = Month.JUNE;
+				break;
+		case 7: month = Month.JULY;
+				break;
+		case 8: month = Month.AUGUST;
+				break;
+		case 9: month = Month.SEPTEMBER;
+				break;
+		case 10: month = Month.OCTOBER;
+				break;
+		case 11: month = Month.NOVEMBER;
+				break;
+		case 12: month = Month.DECEMBER;
+				break;
+		default:
+				break;
+		}
+		return month;
+	}
 
 	public void setMes(String mes) {
 		this.mes = mes;
@@ -94,6 +132,61 @@ public class Mes {
 
 	public void setCobros(List<Cobro> cobros) {
 		this.cobros = cobros;
+	}
+	
+	public Integer horasLaborables() {
+		Integer diasLaborables = 0;
+		switch(id) {
+			case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 :
+				
+				for(int i = 1; i <= 31; i++) {
+					LocalDate fecha = LocalDate.of(2017, getMonth(), i);
+					if(fecha.getDayOfWeek().equals(DayOfWeek.MONDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.TUESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.THURSDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+						
+							if(!buscarDiaFeriado(fecha.getDayOfMonth()))
+								diasLaborables++;
+					}
+				}
+			case 2 :
+				for(int i = 1; i <= 28; i++) {
+					LocalDate fecha = LocalDate.of(2017, getMonth(), i);
+					if(fecha.getDayOfWeek().equals(DayOfWeek.MONDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.TUESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.THURSDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+						
+							if(!buscarDiaFeriado(fecha.getDayOfMonth()))
+								diasLaborables++;
+					}
+				}
+			case 4 : case 6 : case 9 : case 11 :
+				for(int i = 1; i <= 30; i++) {
+					LocalDate fecha = LocalDate.of(2017, getMonth(), i);
+					if(fecha.getDayOfWeek().equals(DayOfWeek.MONDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.TUESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.WEDNESDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.THURSDAY)||
+						fecha.getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
+							if(!buscarDiaFeriado(fecha.getDayOfMonth()))
+								diasLaborables++;
+					}
+				}
+			
+		}
+		return diasLaborables * 8;
+	}
+	
+	public Boolean buscarDiaFeriado(Integer dia) {
+		for(int i = 0; i < diasFeriados.size(); i++) {
+			if(diasFeriados.get(i).getDia().equals(dia))
+				return true;
+		}
+		return false;
 	}
 
 	@Override

@@ -26,6 +26,15 @@ public class PalabraClave {
 		@JsonIgnore
 		private List<Candidato> candidatos;
 
+		public PalabraClave() {
+			
+		}
+		
+		public PalabraClave(Integer id, String palabra) {
+			super();
+			this.id= id;
+			this.palabra=palabra;
+		}
 
 		public Integer getId() {
 			return id;

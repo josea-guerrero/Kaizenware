@@ -3,16 +3,19 @@ package controlador;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
 import modelo.dto.Candidato;
 import modelo.dto.Pais;
+import modelo.dto.Usuario;
 import modelo.servicios.ServicioCandidatos;
 
 @WebServlet("/ControladorCandidato")
@@ -31,7 +34,21 @@ public class ControladorCandidato extends HttpServlet {
 		request.setAttribute("paisesList", this.serviCandidatos.getPaises());
 		request.setAttribute("candidatosList", this.serviCandidatos.getCandidatos());
 		request.getRequestDispatcher("/Vista/candidato.ftl").forward(request, response);
-	}
+	
+//		HttpSession session = request.getSession(false);
+//		
+//		if(session!= null)
+//		{
+//			request.setAttribute("paisesList", this.serviCandidatos.getPaises());
+//			request.setAttribute("candidatosList", this.serviCandidatos.getCandidatos());
+//			request.getRequestDispatcher("/Vista/candidato.ftl").forward(request, response);
+//			
+//		}else
+//		{
+//			System.out.print("Por favor login primero");
+//			request.getRequestDispatcher("Login");
+//		}
+	}	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("nombres").equals("") ||
@@ -100,6 +117,7 @@ public class ControladorCandidato extends HttpServlet {
 				response.getWriter().print(objectMapper.writeValueAsString(candidato));
 			} 
 			catch (Exception e) {
+			
 				response.getWriter().print("error:"+e.getMessage());
 			}
 		}

@@ -46,11 +46,6 @@ public class Cargo implements Serializable {
 	@JoinColumn(name = "id_candidato")
 	private Candidato candidato;
 	
-	@OneToMany(mappedBy = "cargo", fetch = FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	@JsonIgnore
-	private List<Pago> pagos;
-
 	public Cargo() {
 		super();
 	}
@@ -156,14 +151,6 @@ public class Cargo implements Serializable {
 
 	public void setCandidato(Candidato candidato) {
 		this.candidato = candidato;
-	}
-
-	public List<Pago> getPagos() {
-		return pagos;
-	}
-
-	public void setPagos(List<Pago> pagos) {
-		this.pagos = pagos;
 	}
 
 	@Override

@@ -1,322 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Candidatos</title>
+	<!-- Recursos de Kaizenware 
 
-        <title>KaizenWare | Home</title>
-        <!-- logo barra -->
-        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/logo1.png"/>
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
 
-        <!--estilo de formularios-->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-         <!--estilo de botones, al quitar se ven planos-->
-         <link href="../assets/css/bootstrap-theme.min.css" rel="stylesheet">
-      <!--cabecera + footer + menu-->
-       <link href="../assets/css/style.css" rel="stylesheet">
-       <!--separacion entre boton guardar y cancelar-->
-        <link href="../assets/css/estilos-jose.css" rel="stylesheet">
+	-->
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/LOGO-KG.png"/>
+	
+	<!-- Recursos del Prof -->
+	<link href="resources/css/bootstrap.css" rel="stylesheet">
+	<link href="resources/css/dataTables.bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/screen.css" rel="stylesheet">
+	<script src="resources/js/jquery.js"></script>
+	<script src="resources/js/jquery.validate.min.js"></script>
+	<script src="resources/js/jquery.numeric.min.js"></script>
+	<script src="resources/js/pages/pagos.js"></script>
+</head>
 
+ <body>
+ 
+    <div class="main">
+	<!-- HEADER START -->
+		<#include "usuarios/header-admin.ftl">
+	<!-- HEADER END -->
+	
+	<!-- NAVBAR START -->
+	    <#assign x = Session.user.rol.id >
+	    <#if x == 1>
+	    <#include "usuarios/navbar-admin.ftl">
+	    <#elseif x == 2>
+	    <#include "usuarios/navbar-manager.ftl">
+	    </#if>
+	<!-- NAVBAR END -->
 
+	
+	<!-- CONTENT START -->
+	<div id="content" class="col-md-10 col-md-offset-1">
+	<h1 class="page-header">
+        Gesti&oacute;n de Pagos
+    </h1>
 
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body class="color-fondo">
-        <div class="main">
-        	<#include "/usuarios/header-admin.ftl">
-<!-- 			<header> -->
-<!--                 <nav class=""> -->
-<!--                         <div> -->
-<!--                         <div class="container"> -->
-<!--                             <div class="row"> -->
-<!--                                 <div class="col-xs-6"> -->
-<!--                                      <div class="logo small-img"> -->
-<!--                                         <a href="../index.html"><img src="../assets/images/LOGO-KG.png"></a> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                                 <div class="col-xs-6 text-right"> -->
-<!--                                     <div class="menu m"> -->
-<!--                                         <a href="#"><span ></span></a> -->
-<!--                                     </div> -->
-<!--                                 </div> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </nav> -->
-<!-- 			</header> -->
-        <nav class="menu nav-scroll" id="theMenu" role="navigation">
-		<div class="menu-wrap">
-        <div>
-		<h1 class="logo"><a class="center-block" href="../index.html#home">KAIZENWARE</a></h1>
-		<i class="fa fa-arrow-rigth menu-close"></i>
-                <div class="small-img">
-                    <a href="#">
-                        <img class="img-circle center-block" src="../assets/images/img2.jpg" alt="Foto de Perfil">
-                    </a>
+		<!-- VENTANA START -->
+		<div class="modal fade" id="ventana" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4>Pago</h4>
+					</div>
+					<div class="modal-body">
+						<div id="mensajesError"></div>
+						</div>
 
-                </div>
-                <table>
-                    <tr>
-                        <td>
-                            <a href="miperfil.html"><sub>Perfil</sub></a>
-                        </td>
-                        <td>
-                            <a href="../index.html"><sub>Cerrar Sesi&oacute;n</sub></a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-                <hr/>
-                <ul>
-                    <a href="../index.html"><li>Home</li></a>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#gestiones">Gestionar</a>
-                        <ul id="gestiones" class="collapse">
-                            <li class="second-lvl first">
-                                <a href="VCliente.html">Clientes</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VCandidato.html">Candidatos</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VProyecto.html">Proyectos</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VCargos.html">Cargos</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VAsignarEC.html">Asignar Cargos</a>
-                            </li>
-                            <li class="second-lvl last">
-                                <a href="VDiaFeriado.html">D&iacute;as Feriados</a>
-                            </li>
-                            <li class="second-lvl first">
-                                <a href="VUsuario.html">Usuarios</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#administrar">Administrar</a>
-                        <ul id="administrar" class="collapse">
-                            <li class="second-lvl first">
-                                <a href="VEntrevista.html">Entrevistas</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VAsistencia.html">Asistencias</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="falta.html">Faltas</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="cobro.html">Cobros</a>
-                            </li>
-                            <li class="second-lvl last">
-                                <a href="pago.html">Pagos</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#reportes">Reportes</a>
-                        <ul id="reportes" class="collapse">
-                            <li class="second-lvl first">
-                                <a href="VConsultarCliente.html">Clientes</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VConsultarCandidato.html">Candidatos</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VConsultarEntrevistas.html">Entrevistas</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="VConsultarHorasT.html">Horas Trabajadas</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="consultar-pagos2.html">Record de Pagos</a>
-                            </li>
-                            <li class="second-lvl">
-                                <a href="consultar-utilidad.html">Utilidad</a>
-                            </li>
-                            <li class="second-lvl last">
-                                <a href="consultar-faltas.html">Faltas</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        <!-- Menu button -->
-        <div id="menuToggle" class="ion-navicon _ion-android-menu"><i class="fa fa-bars"></i>
-        </div>
-	</nav>
+						<form id="formPago" name="pago">
+							<div class="form-group">
+								<input type="hidden" id="fila" name="fila" />
+								<input type="hidden" id="idString" name="idString" />								
+								<br/>
+								<label for="fechaa">Fecha Emisión</label>
+								<input type="text" class="form-control" id="fecha" name="fecha" placeholder="Fecha" maxlenght="15"/>
+								<br/>
+								<label for="empleado">Empleado</label>
+								<input type="text" class="form-control" id="empleado" name="empleado" placeholder="Empleado" />
+								<input type="hidden" class="form-control" id="id_empleado" name="id_empleado"/>
+								<br/>
+								<label for="mes" placeholder="Mes" >Mes</label>
+								<input type="text" class="form-control" id="mes" name="mes" maxlength="50"  />
+								<input type="hidden" class="form-control" id="id_mes" name="id_mes"/>
+								<br/>
+								<label for="anio">Año</label>																									
+								<input type="text" class="form-control" id="anio" name="anio" maxlength="13"  />
+								<br/>
+								<label for="montoo">Monto a Pagar</label>																									
+								<input type="text" class="form-control" id="monto" name="monto" maxlength="10" />
+								<br/>
+								<label for="descripcion" >Descripcion</label>
+								<textarea class="form-control" rows="2" id="descripcion" name="descripcion" maxlength="200" ></textarea>
+								
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" id="btnGuardar" class="btn btn-primary"
+							onclick="onGuardar();"><i class="glyphicon glyphicon-ok"></i>&nbsp;Guardar</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i>&nbsp;Cerrar</button>
+						
+					</div>
+				</div>
+			</div>
+		<!-- VENTANA END -->		
+		
+		<!-- BARRA DE HERRAMIENTAS START -->
+		<div class="navbar navbar-default">
+			<div class="container">
+				<table class="col-md-10">
+					<tr>
+							<div id="mensajes" class="col-md-offset-1"></div>
+					</tr>
+				</table>
+			</div>			
+		</div>
+		<!-- BARRA DE HERRAMIENTAS END -->
+		
+		<!-- TABLA START -->
+		<div>
+			<table id="tabla" class="table table-striped table-bordered table-hover table-condensed">
+				<thead>
+					<tr>
+						<th>Empleado</th>
+						<th>Mes</th>
+						<th>Año</th>
+						<th>Remuneracion Total</th>
+						<th>Horas Laboradas</th>
+						<th>Horas Justificadas</th>
+						<th>Monto a Pagar</th>
+						<th>Registrar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<#list asistenciasList as asistencia>
+					<tr>
+						<input type="hidden" id="fila${asistencia.idString}" value="${asistencia.id}" />					
+						<td><span id="empleado${asistencia.idString}">${asistencia.candidato.nombres} ${asistencia.candidato.apellidos}</span>
+							<input type="hidden" id="id_empleado${asistencia.idString}" value="${asistencia.candidato.id}" />
+						</td>	
+						<td><span id="mes${asistencia.idString}"> ${asistencia.mes.mes} </span>
+							<input type="hidden" id="id_mes${asistencia.idString}" value="${asistencia.mes.id}" />
+						</td>
+						<td><span id="anio${asistencia.idString}">${asistencia.anio}</span></td>
+						<#assign remuneracion = asistencia.candidato.getRemuneracionTotal(asistencia.mes)>
+						<td><span id="remuneracion${asistencia.idString}">${remuneracion}</span></td>
+						<td><span id="horas_lab${asistencia.idString}">${asistencia.horas_trabajadas}</span></td>
+						<#assign justificadas = asistencia.candidato.getHorasJustificadas(asistencia.mes.id, asistencia.anio)>
+						<td><span id="horas_jus${asistencia.idString}">${justificadas}</span></td>
+						<td><span id="monto${asistencia.idString}">${remuneracion*(asistencia.horas_trabajadas + justificadas)}</span></td>
+						<td><a class="btn-info btn" data-toggle="modal"
+							data-target="#ventana" onclick="onIncluir('${asistencia.idString}');">
+							<i class="glyphicon glyphicon-plus"></i>Incluir</a>
+						</td>
+												
+					</tr>
+				 	</#list>
+				</tbody>
+			</table>
+		</div>
+		<!-- TABLA END -->
+	</div>
+	<!-- CONTENT END -->
+	</div>
+	
+	<!-- JAVASCRIPT START -->
+    <!-- Scripts de Kaizenware 
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script src="assets/js/jquery-3.1.1.js"></script>
+    <script src="assets/js/desplegable.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    -->
+   
+    <script src="assets/js/script.js"></script>
+ 
+    <!-- Scripts del prof -->
+	<script src="resources/js/bootstrap.js"></script>
+	<script src="resources/js/jquery.dataTables.min.js"></script>
+	<script src="resources/js/dataTables.bootstrap.min.js"></script>
+	<script src="resources/js/bootstrap-confirmation.js"></script>	
+	<script type="text/javascript" class="init">		
+		$('[data-toggle="confirmation"]').confirmation('hide');
+	</script>
+	<!-- JAVASCRIPT END -->
 
-			<div id="page-wrapper" class="container-fluid">
-
-            <div class="contenedor-principal">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Gestión de Pagos
-<!--                             <small>Subheading</small> -->
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>Administrar
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Pagos
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <h2 class="col-lg-offset-3">Pagos Pendientes por Empleado</h2>
-
-                        <div class="table-responsive">
-                        <table class="table table-striped text-center">
-                            <thead class="bg-primary">
-                                <tr>
-                                    <th>Código Empleado</th>
-                                    <th>Nombre y Apellido</th>
-                                    <th>Proyecto</th>
-                                    <th>Cargo</th>
-                                    <th>Mes</th>
-                                    <th>Horas a Pagar</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tb-empleados">
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary center-block">Procesar Pago</button>
-
-                        <hr/>
-
-
-                        <form role="form">
-                            <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label>Número Recibo de Pago</label>
-                                <input class="form-control" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Código del Empleado</label>
-                                <input class="form-control" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Nombre del Empleado</label>
-                                <input class="form-control" disabled>
-                            </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="form-group center-block">
-                                    <label>Fecha de Emisión</label>
-                                    <input type="date" class="form-control" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Proyecto / Cargo</label>
-                                    <input type="text" class="form-control" disabled>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Monto a Pagar</label>
-                                    <input class="form-control" disabled>
-                                    <p class="">Horas a pagar * Salario por hora</p>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <label>Descripción</label>
-                                    <textarea class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <button type="submit" class="btn btn-primary center-block mb-20">Guardar</button>
-                                </div>
-                                <div class="col-lg-6">
-                                    <button type="reset" class="btn btn-primary center-block mb-20">Cancelar</button>
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
-                <!-- /.row -->
-
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-        <footer class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <p>Design <font class="logo-icon"></font> by <a href="https://www.freshdesignweb.com/">group of four</a></p>
-                        </div>
-                    </div>
-                </div>
-        </footer>
-        </div>
-
-        <!-- Scripts section -->
-        <script src="../assets/js/jquery-3.1.1.js"></script>
-        <script src="../assets/js/desplegable.js"></script>
-        <script src="../assets/js/jquery.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <script src="../assets/js/owl.carousel.min.js"></script>
-        <script src="../assets/js/jquery.magnific-popup.js"></script>
-        <script src="../assets/js/script.js"></script>
-    </body>
+</body>
 </html>

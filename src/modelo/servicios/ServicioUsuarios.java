@@ -58,7 +58,7 @@ public class ServicioUsuarios {
 	{
 		
 		    List<Usuario> usuarios = this.usuarioDAO.getPorNombre(nombre);
-		    if(usuarios != null && !usuarios.isEmpty())
+		    if(!usuarios.isEmpty())
 		    {
 		    	Usuario user = usuarios.get(0);
 		    	if(user.getContrasena().equals(contrasena))
@@ -69,6 +69,7 @@ public class ServicioUsuarios {
 		    }
 		    
 		    return null;
+		
 	}
 
 	public Rol getRolPorId(Serializable id) {
@@ -78,12 +79,19 @@ public class ServicioUsuarios {
 		return null;
 	}
 	
+	public Candidato getCandidatoPorId(Serializable id) {
+		if (id != null) { 
+			return this.candidatoDAO.get(id);
+		}
+		return null;
+	}
+	
 	public Usuario incluirUsuario(Usuario usuario) {
 		this.usuarioDAO.saveOrUpdate(usuario);
 		return usuario;
 	}
 
-	public Usuario modificarUsuario(Integer id, Integer idRol, String contrasena, String contrasena_confirma,
+	public Usuario modificarUsuario(Integer id, String contrasena, Integer idCandidato, Integer idRol, String contrasena_confirma,
 			String foto_perfil, String nombre_usuario) {
 		Usuario usuario = this.getUsuarioPorId(id);
 		Rol rol = this.getRolPorId(idRol);
@@ -92,6 +100,8 @@ public class ServicioUsuarios {
 		usuario.setContrasena_confirma(contrasena_confirma);
 		usuario.setFoto_perfil(foto_perfil);
 		usuario.setNombre_usuario(nombre_usuario);
+		Candidato candi = this.getCandidatoPorId(idCandidato);
+		usuario.setCandidato(candi);
 		this.usuarioDAO.saveOrUpdate(usuario);
 		return this.getUsuarioPorId(id);
 	}
